@@ -49,3 +49,62 @@ table {
 .button td a{
 	text-decoration: none;
 }
+
+#menu-deroulant, #menu-deroulant ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align:center;
+}
+#menu-deroulant li{
+	display:inline-block;
+	position:relative;
+	border-radius:8px 8px 0 0;
+}
+#menu-deroulant ul li{
+	display:inherit;
+	border-radius:0;
+}
+#menu-deroulant ul li:hover{
+	border-radius:0;
+}
+#menu-deroulant ul{
+	position:absolute;
+	z-index: 1000;
+	max-height:0;
+	left: 0;
+	right: 0;
+	overflow:hidden;
+	-moz-transition: .8s all .3s;
+	-webkit-transition: .8s all .3s;
+	transition: .8s all .3s;
+}
+#menu-deroulant li:hover ul{
+	max-height:15em;
+}
+/* background des liens sous menus */
+#menu-deroulant li li{
+	background:#ffffff;
+}
+/* background des liens menus et sous menus au survol */
+#menu-deroulant li li:hover{
+	background:#ffffff;
+}
+/* les a href */
+#menu-deroulant a{
+	text-decoration:none;
+	display:block;
+	color:#000;
+	font-family:arial;
+}
+#menu-deroulant ul a{
+	padding:8px 0;
+}
+#menu-deroulant li:hover li a{
+	color:#000;
+	text-transform:inherit;
+}
+#menu-deroulant li li:hover a{
+	color: #000000;
+	background: #A9A9A9;
+}
