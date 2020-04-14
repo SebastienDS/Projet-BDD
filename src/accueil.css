@@ -2,10 +2,8 @@ body{
 	 background: #fd6c9eff;
 }
 
-img {
-	/* max-width: 50%;
-	height: auto; */
-	max-width: 500px;
+img { 
+	width: 500px;
 	height: auto;
 }
 
@@ -46,7 +44,7 @@ button::before {
 
 button:hover::before {
 	transition: all 0.75s ease-in-out;
-	transform-origin: center;
+	transform-origin: center
 	transform: scale(1.75);
 	opacity: 0;
 }
@@ -55,6 +53,27 @@ button:hover::before {
 .positionnement {
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 	text-align: center;
 	margin: 50px 0px 100px 0px;
+}
+
+.space{
+	display: flex;
+	width: 250px;
+	justify-content: space-between;
+	margin-bottom: 25px;
+}
+
+.buttonTaille{
+	padding: 1em 2em;
+}
+
+.centrer{
+	display: flex;
+	justify-content: center;
+}
+
+.enPleinMilieu{
+	margin-top: 15%;
 }
