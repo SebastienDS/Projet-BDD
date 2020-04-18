@@ -60,7 +60,7 @@ button:hover::before {
 
 .space{
 	display: flex;
-	width: 400px;
+	width: 600px;
 	justify-content: space-around;
 	margin-bottom: 25px;
 	height: 37px;

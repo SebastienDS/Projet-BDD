@@ -21,7 +21,7 @@
 			</table>
 			<div>
 				<ul id="menu-deroulant">
-					<li><a href="#"><img class="profile" src="../img/le_sedum_reportage.jpg" width="125px" height="125px"></a>
+					<li><a href="#"><img class="profile" src="img/le_sedum_reportage.jpg" width="125px" height="125px"></a>
 						<ul>
 							<li><a href="#">Mon Profil</a></li>
 							<li><a href="#">Mes Paramètres</a></li>
@@ -30,9 +30,6 @@
 					</li>
 				</ul>
 			</div>
-		</div>
-		<div class="pub">
-			<iframe width="1480" height="600" src="https://www.youtube.com/embed/kUuSe1Vw6rw?autoplay=1&loop=1&start=4" frameborder="0"  allowfullscreen></iframe>
 		</div>
 	</body>
 </html>
