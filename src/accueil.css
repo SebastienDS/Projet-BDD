@@ -60,9 +60,11 @@ button:hover::before {
 
 .space{
 	display: flex;
-	width: 250px;
-	justify-content: space-between;
+	width: 400px;
+	justify-content: space-around;
 	margin-bottom: 25px;
+	height: 37px;
+	font-size: 37px; 
 }
 
 .buttonTaille{
