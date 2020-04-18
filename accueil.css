@@ -79,3 +79,7 @@ button:hover::before {
 .enPleinMilieu{
 	margin-top: 15%;
 }
+
+.rouge {
+	color: red;
+}

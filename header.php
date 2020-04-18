@@ -25,11 +25,10 @@
 						<ul>
 							<li><a href="#">Mon Profil</a></li>
 							<li><a href="#">Mes Paramètres</a></li>
-							<li><a href="#">Se déconnecter</a></li>
+							<li><a href="deconnexion.php">Se déconnecter</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
-	</body>
-</html>
+	
