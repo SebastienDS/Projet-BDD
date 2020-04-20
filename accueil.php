@@ -1,5 +1,4 @@
 <?php
-require("verification.php");
 require_once("header.php");
 
 ?>
