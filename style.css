@@ -4,7 +4,7 @@
 }
 
 body{
-	 background: rgb(104, 235, 53);
+	background: rgb(104, 235, 53);
 }
 
 table {
@@ -137,4 +137,22 @@ table {
 
 .blanc {
 	background-color: white;
+}
+
+.gestionDesComptes {
+	display: flex;
+	justify-content: space-around;
+	margin: 100px 0px;
+}
+
+.action {
+	text-align: center;
+	background-color: white;
+	width: 250px;
+	padding: 15px 0px;
+	font-size: 20px;
+	border: 1px solid black;
+	border-radius: 12px;
+	text-decoration: none;
+	color: black;
 }

@@ -8,7 +8,7 @@ if ($_SESSION["type"] === "Administrateur") {
 }
 
 $onglets = get_onglets($_SESSION["type"]);
-
+$links = get_links($_SESSION["type"]);
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +21,11 @@ $onglets = get_onglets($_SESSION["type"]);
 		<div class="BarreDuHaut">
 			<table class="button">	
 				<tr>
-					<td>
-						<a href="#"><?= $onglets[0] ?></a>
-					</td>
-					<td>
-						<a href="#"><?= $onglets[1] ?></a>
-					</td>
-					<td>
-						<a href="#"><?= $onglets[2] ?></a>
-					</td>
+					<?php foreach ($onglets as $key => $onglet ) { ?>
+						<td>
+							<a href="<?= isset($links[$key]) ? $links[$key] : '#' ?>"><?= $onglet ?></a>
+						</td>
+					<?php } ?>
 				</tr>
 			</table>
 			<div>

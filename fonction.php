@@ -13,4 +13,17 @@ function get_onglets($role) {
     }
 }
 
+function get_links($role) {
+    switch($role) {
+        case "Administrateur":
+            return ["gestion_des_comptes.php"];
+        case "Jardinier":
+            return [];
+        case "Chef Jardinier":
+            return [];
+        case "Syndic":
+            return [];
+    }
+}
+
 ?>
