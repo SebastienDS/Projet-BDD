@@ -3,10 +3,10 @@ require_once("header.php");
 ?>
 
 <div class="gestionDesComptes">
-    <a href="#" class="action">Supprimer un compte</a>
-    <a href="#" class="action">Ajouter un compte</a>
-    <a href="#" class="action">Modifier un compte</a>
-    <a href="#" class="action">Recherche</a>
+    <a href="supprimer_un_compte.php" class="action">Supprimer un compte</a>
+    <a href="ajouter_un_compte.php" class="action">Ajouter un compte</a>
+    <a href="modifier_un_compte.php" class="action">Modifier un compte</a>
+    <a href="recherche.php" class="action">Recherche</a>
 </div>
 
 

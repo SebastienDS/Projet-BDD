@@ -16,6 +16,7 @@ $links = get_links($_SESSION["type"]);
 	<head>
 		<title>PROJET BDD DU TURFU</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	</head>
 	<body>
 		<div class="BarreDuHaut">
