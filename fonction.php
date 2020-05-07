@@ -26,4 +26,9 @@ function get_links($role) {
     }
 }
 
+function get_recherche_query($array) {
+    $recherche = [];
+    
+}
+
 ?>

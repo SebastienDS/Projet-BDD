@@ -4,6 +4,10 @@ require_once("connexion.php");
 
 $diplome = $dbh->query("SELECT distinct diplome from Jardinier")->fetchAll(PDO::FETCH_ASSOC);
 $anciennete = $dbh->query("SELECT distinct anciennete from Jardinier")->fetchAll(PDO::FETCH_ASSOC);
+$_GET = array_filter($_GET);
+echo "<pre>";
+var_dump($_GET);
+echo "</pre>";
 ?>
 
 <div class="espace">
@@ -31,16 +35,16 @@ $anciennete = $dbh->query("SELECT distinct anciennete from Jardinier")->fetchAll
         <div>
             <label for="sexe" class="label">Sexe :</label>
             <select name="sexe" id="sexe">
-                <option value="None">Ne sait pas</option>
-                <option value="H" name="H">Homme</option>
-                <option value="F" name="F">Femme</option>
-                <option value="Non-binary" name="Non-binary">Autre</option>
+                <option value="">Ne sait pas</option>
+                <option value="H">Homme</option>
+                <option value="F">Femme</option>
+                <option value="Non-binary">Autre</option>
             </select>
         </div>
         <div>
             <label for="diplome" class="label">Diplome :</label>
             <select name="diplome" id="diplome">
-                <option value="None">Ne sait pas</option>
+                <option value="">Ne sait pas</option>
                 <?php foreach ($diplome as $row) { ?>
                     <option value="<?= $row['diplome'] ?>"><?= $row['diplome'] ?></option>
                 <?php } ?>
@@ -49,7 +53,7 @@ $anciennete = $dbh->query("SELECT distinct anciennete from Jardinier")->fetchAll
         <div>
             <label for="anciennete" class="label">Anciennete :</label>
             <select name="anciennete" id="anciennete">
-                <option value="None">Ne sait pas</option>
+                <option value="">Ne sait pas</option>
                 <?php foreach ($anciennete as $row) { ?>
                     <option value="<?= $row['anciennete'] ?>"><?= $row['anciennete'] ?></option>
                 <?php } ?>
@@ -58,7 +62,7 @@ $anciennete = $dbh->query("SELECT distinct anciennete from Jardinier")->fetchAll
         <div>
             <label for="chef" class="label">Est Chef :</label>
             <select name="chef" id="chef">
-                <option value="None">Ne sait pas</option>
+                <option value="">Ne sait pas</option>
                 <option value="1">Oui</option>
                 <option value="0">Non</option>
             </select>
