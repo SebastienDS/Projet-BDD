@@ -16,31 +16,31 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form method="post">
         <div>
             <label for="nom" class="label">Nom :</label>
-            <input type="text" id="nom" name="nom_individu" class="input" <?= isset($_POST["nom_individu"]) ? 'value='.$_POST["nom_individu"] : "" ?>>
+            <input type="text" id="nom" name="nom_individu" class="input">
         </div>
         <div>
             <label for="prenom" class="label">Prenom :</label>
-            <input type="text" id="prenom" name="prenom_individu" class="input" <?= isset($_POST["prenom_individu"]) ? 'value='.$_POST["prenom_individu"] : "" ?>>
+            <input type="text" id="prenom" name="prenom_individu" class="input">
         </div>
         <div>
             <label for="adresse" class="label">Adresse :</label>
-            <input type="text" id="adresse" name="adresse_individu" class="input" <?= isset($_POST["adresse_individu"]) ? 'value='.$_POST["adresse_individu"] : "" ?>>
+            <input type="text" id="adresse" name="adresse_individu" class="input">
         </div>
         <div>
             <label for="telephone" class="label">Telephone :</label>
-            <input type="tel" name="telephone_individu" id="telephone" placeholder="0123456789" pattern="[0-9]{10}" class="input" <?= isset($_POST["telephone_individu"]) ? 'value='.$_POST["telephone_individu"] : "" ?>>
+            <input type="tel" name="telephone_individu" id="telephone" placeholder="0123456789" pattern="[0-9]{10}" class="input">
         </div>
         <div>
             <label for="naissance" class="label">Date de Naissance :</label>
-            <input type="date" name="date_de_naissance_jardinier" id="naissance" class="input"  <?= isset($_POST["date_de_naissance_jardinier"]) ? 'value='.$_POST["date_de_naissance_jardinier"] : "" ?>>
+            <input type="date" name="date_de_naissance_jardinier" id="naissance" class="input">
         </div>
         <div>
             <label for="sexe" class="label">Sexe :</label>
             <select name="sexe" id="sexe">
                 <option value="">Ne sait pas</option>
-                <option value="M" <?= isset($_POST["sexe"]) && $_POST["sexe"] === 'M' ? 'selected' : "" ?>>Homme</option>
-                <option value="F" <?= isset($_POST["sexe"]) && $_POST["sexe"] === 'F' ? 'selected' : "" ?>>Femme</option>
-                <option value="Non-binary" <?= isset($_POST["sexe"]) && $_POST["sexe"] === 'Non-binary' ? 'selected' : "" ?>>Autre</option>
+                <option value="M">Homme</option>
+                <option value="F">Femme</option>
+                <option value="Non-binary">Autre</option>
             </select>
         </div>
         <div>
@@ -48,7 +48,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <select name="diplome" id="diplome">
                 <option value="">Ne sait pas</option>
                 <?php foreach ($diplome as $row) { ?>
-                    <option value="<?= $row['diplome'] ?>" <?= isset($_POST["diplome"]) && $_POST["diplome"] === $row['diplome'] ? 'selected' : "" ?>><?= $row['diplome'] ?></option>
+                    <option value="<?= $row['diplome'] ?>"><?= $row['diplome'] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -57,7 +57,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <select name="anciennete" id="anciennete">
                 <option value="">Ne sait pas</option>
                 <?php foreach ($anciennete as $row) { ?>
-                    <option value="<?= $row['anciennete'] ?>" <?= isset($_POST["anciennete"]) && $_POST["anciennete"] === $row['anciennete'] ? 'selected' : "" ?>><?= $row['anciennete'] ?></option>
+                    <option value="<?= $row['anciennete'] ?>"><?= $row['anciennete'] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -65,8 +65,8 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <label for="chef" class="label">Possible responsable :</label>
             <select name="possibilite_responsable" id="chef">
                 <option value="">Ne sait pas</option>
-                <option value="Oui" <?= isset($_POST["possibilite_responsable"]) && $_POST["possibilite_responsable"] === 'Oui' ? 'selected' : "" ?>>Oui</option>
-                <option value="Non" <?= isset($_POST["possibilite_responsable"]) && $_POST["possibilite_responsable"] === 'Non' ? 'selected' : "" ?>>Non</option>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
             </select>
         </div>
 
