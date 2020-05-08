@@ -13,6 +13,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="espace">
+    <h1 class="center">Rechercher</h1>
     <form method="post">
         <div>
             <label for="nom" class="label">Nom :</label>
@@ -77,6 +78,13 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </form>
 </div>
 
+
+<a href="" class="ajouter espace">
+    <img src="img/ajouter.png" width="75">
+    <h2 class="espace">Ajouter un compte</h2>
+</a>
+
+
 <?php foreach ($jardinier as $elem) { 
     if ($elem['Numéro du chef'] === NULL) {
         $elem['Numéro du chef'] = $elem['Numéro'];
@@ -89,6 +97,10 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($elem as $key => $value) { ?>
                 <p class="itemDescription"><?= $key ?> : <?= $value ?></p>
             <?php } ?>
+        </div>
+        <div class="icon espace">
+            <a href=""><img src="img/modifier.png" width="50"></a>
+            <a href=""><img src="img/supprimer.png" width="50"></a>
         </div>
     </div>
 <?php } ?>

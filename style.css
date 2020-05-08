@@ -11,6 +11,18 @@ table {
   border-collapse: collapse;
 }
 
+a {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color:black;
+}
+
 .profile{
 	border-radius: 50%;
 	margin-right: 5px;
@@ -217,9 +229,20 @@ button {
 	flex-wrap: wrap;
 	flex-direction: column;
 	height: 100px;
+	width: 70%;
 	padding: 20px 0px;
 }
 
 .itemDescription {
 	margin: 0px 15px;
+}
+
+.icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.ajouter {
+	display: flex;
 }
