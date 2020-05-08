@@ -206,3 +206,20 @@ form div + div {
 button {
 	margin-left: .5em;
 }
+
+.presentationJardinier {
+	display: flex;
+	border-bottom: 1px solid black;
+}
+
+.contenuJardinier {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	height: 100px;
+	padding: 20px 0px;
+}
+
+.itemDescription {
+	margin: 0px 15px;
+}
