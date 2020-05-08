@@ -246,3 +246,13 @@ button {
 .ajouter {
 	display: flex;
 }
+
+.bleu {
+	color: darkturquoise;
+	background-color: #ffffff;
+}
+
+.rouge {
+	color: red;
+	background-color: gold;
+}

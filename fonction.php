@@ -40,4 +40,30 @@ function get_recherche_query($array) {
     return array($query, $var);
 }
 
+function get_insert_individu_query($array) {
+    return array("INSERT into Individu (nom_individu, prenom_individu, adresse_individu, telephone_individu) values (?,?,?,?)", [
+        $array["nom_individu"] ?? NULL, 
+        $array["prenom_individu"] ?? NULL,
+        $array["adresse_individu"] ?? NULL,
+        $array["telephone_individu"] ?? NULL
+    ]);
+}
+
+function get_insert_jardinier_query($array, $id) {
+    return array("INSERT into Jardinier (num_individu, date_de_naissance_jardinier, sexe, diplome, anciennete, possibilite_responsable) values (?,?,?,?,?,?)", [
+        $id,
+        $array["date_de_naissance_jardinier"] ?? NULL,
+        $array["sexe"] ?? NULL,
+        $array["diplome"] ?? NULL,
+        $array["anciennete"] ?? NULL,
+        $array["possibilite_responsable"] ?? NULL
+    ]);
+}
+
+function get_insert_authentification_query($array, $id) {
+    return array("INSERT into authentification (id, login, password, type) values (?,?,sha1(?),?)", [
+        $id, $array["login"], $array["password"], $array["type"] 
+    ]);
+}
+
 ?>
