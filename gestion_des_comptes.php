@@ -108,7 +108,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </div>
         <div class="icon espace">
-            <a href="" onclick="return confirm('Voulez vous modifier ce compte ?');"><img src="img/modifier.png" width="50"></a>
+            <a href="modifier_un_compte.php?id=<?= $elem['Numéro'] ?>" onclick="return confirm('Voulez vous modifier ce compte ?');"><img src="img/modifier.png" width="50"></a>
             <a href="supprimer_un_compte.php?id=<?= $elem['Numéro'] ?>" onclick="return confirm('Voulez vous supprimez ce compte ?');"><img src="img/supprimer.png" width="50"></a>
         </div>
     </div>

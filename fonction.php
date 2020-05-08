@@ -33,9 +33,9 @@ function get_recherche_query($array) {
         $recherche[] = "$key = ?";
         $var[] = $value;
     }
-    $query = "SELECT num_individu as 'Numéro', nom_individu as 'Nom', prenom_individu as 'Prénom', adresse_individu as 'Adresse', telephone_individu as 'Numéro de Téléphone', date_de_naissance_jardinier as 'Date de naissance', sexe as 'Sexe', diplome as 'Diplome', anciennete as 'Ancienneté', possibilite_responsable as 'Possibilite responsable', num_individu_membre as 'Numéro du chef' from Individu natural join Jardinier ";
+    $query = "SELECT num_individu as 'Numéro', nom_individu as 'Nom', prenom_individu as 'Prénom', adresse_individu as 'Adresse', telephone_individu as 'Numéro de téléphone', date_de_naissance_jardinier as 'Date de naissance', sexe as 'Sexe', diplome as 'Diplome', anciennete as 'Ancienneté', possibilite_responsable as 'Possibilite responsable', num_individu_membre as 'Numéro du chef' from Individu natural join Jardinier ";
     if ($var) {
-        $query.= "where ". implode(" and ", $recherche);
+        $query.= "where ". implode(" and ", $recherche) . " order by num_individu";
     }
     return array($query, $var);
 }

@@ -2,8 +2,6 @@
 require_once("header.php");
 require_once("connexion.php");
 
-$diplome = $dbh->query("SELECT distinct diplome from Jardinier")->fetchAll(PDO::FETCH_ASSOC);
-$anciennete = $dbh->query("SELECT distinct anciennete from Jardinier")->fetchAll(PDO::FETCH_ASSOC);
 $_POST = array_filter($_POST);
 
 if (!empty($_POST)) {
@@ -94,18 +92,18 @@ if (!empty($_POST)) {
             <label for="diplome" class="label">Diplome :</label>
             <select name="diplome" id="diplome">
                 <option value="">Ne sait pas</option>
-                <?php foreach ($diplome as $row) { ?>
-                    <option value="<?= $row['diplome'] ?>"><?= $row['diplome'] ?></option>
-                <?php } ?>
+                <option value="CAP">CAP</option>
+                <option value="BEP">BEP</option>
+                <option value="BAC PRO">BAC PRO</option>
+                <option value="BTS">BTS</option>
             </select>
         </div>
         <div>
             <label for="anciennete" class="label">Anciennete :</label>
             <select name="anciennete" id="anciennete">
                 <option value="">Ne sait pas</option>
-                <?php foreach ($anciennete as $row) { ?>
-                    <option value="<?= $row['anciennete'] ?>"><?= $row['anciennete'] ?></option>
-                <?php } ?>
+                <option value="débutant">débutant</option>
+                <option value="confirmé">confirmé</option>
             </select>
         </div>
         <div>
