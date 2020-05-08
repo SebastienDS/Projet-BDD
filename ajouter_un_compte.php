@@ -58,6 +58,10 @@ if (!empty($_POST)) {
     <h1 class="center">Ajouter un compte</h1>
     <form method="post">
         <div>
+            <label for="numero" class="label">Numéro</label>
+            <input type="number" name="num_individu" id="numero" class="input">
+        </div>
+        <div>
             <label for="nom" class="label">Nom :</label>
             <input type="text" id="nom" name="nom_individu" class="input">
         </div>

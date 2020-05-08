@@ -41,7 +41,8 @@ function get_recherche_query($array) {
 }
 
 function get_insert_individu_query($array) {
-    return array("INSERT into Individu (nom_individu, prenom_individu, adresse_individu, telephone_individu) values (?,?,?,?)", [
+    return array("INSERT into Individu (num_individu, nom_individu, prenom_individu, adresse_individu, telephone_individu) values (?,?,?,?,?)", [
+        $array["num_individu"] ?? NULL,
         $array["nom_individu"] ?? NULL, 
         $array["prenom_individu"] ?? NULL,
         $array["adresse_individu"] ?? NULL,
