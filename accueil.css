@@ -44,7 +44,7 @@ button::before {
 
 button:hover::before {
 	transition: all 0.75s ease-in-out;
-	transform-origin: center
+	transform-origin: center;
 	transform: scale(1.75);
 	opacity: 0;
 }

@@ -18,11 +18,11 @@ function get_links($role) {
         case "Administrateur":
             return ["gestion_des_comptes.php"];
         case "Jardinier":
-            return [];
+            return ["mes_residences.php"];
         case "Chef Jardinier":
-            return [];
+            return ["mes_residences.php"];
         case "Syndic":
-            return [];
+            return ["mes_residences.php"];
     }
 }
 

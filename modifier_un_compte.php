@@ -41,7 +41,7 @@ $infos = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
 $stmt = $dbh->prepare("select login, type from authentification where id = ?");
 $stmt->execute([$id]);
-$infos = array_merge($infos, $stmt->fetchAll(PDO::FETCH_ASSOC)[0]);
+$infos = array_merge($infos, $stmt->fetchAll(PDO::FETCH_ASSOC)[0] ?? []);
 
 
 
