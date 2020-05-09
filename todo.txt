@@ -1,0 +1,13 @@
+jardinier:
+    mes_residences  (mettre que "mes" ?)
+        gardien
+        syndic
+        calendrier
+    mon salaire
+    mon syndic
+    mon profil
+    mes parametres
+admin:
+    gerer les residences
+syndic: 
+    ? si ya le temps :)

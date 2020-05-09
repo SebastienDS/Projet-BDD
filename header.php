@@ -2,11 +2,6 @@
 require("verification.php");
 require_once("fonction.php");
 
-$lien_profil = "profil";
-if ($_SESSION["type"] === "Administrateur") {
-	$lien_profil .= "_admin";
-}
-
 $onglets = get_onglets($_SESSION["type"]);
 $links = get_links($_SESSION["type"]);
 ?>
@@ -33,7 +28,7 @@ $links = get_links($_SESSION["type"]);
 				<ul id="menu-deroulant">
 					<li><a href="accueil.php"><img class="profile" src="img/le_sedum_reportage.jpg" width="125px" height="125px"></a>
 						<ul>
-							<li><a href="<?= $lien_profil ?>.php">Mon Profil</a></li>
+							<li><a href="profil.php">Mon Profil</a></li>
 							<li><a href="#">Mes Paramètres</a></li>
 							<li><a href="deconnexion.php">Se déconnecter</a></li>
 						</ul>
