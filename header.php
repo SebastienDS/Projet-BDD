@@ -24,7 +24,7 @@ $links = get_links($_SESSION["type"]);
 				<tr>
 					<?php foreach ($onglets as $key => $onglet ) { ?>
 						<td>
-							<a href="<?= isset($links[$key]) ? $links[$key] : '#' ?>"><?= $onglet ?></a>
+							<a href="<?= $links[$key] ?? '#' ?>"><?= $onglet ?></a>
 						</td>
 					<?php } ?>
 				</tr>

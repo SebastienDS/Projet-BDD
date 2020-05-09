@@ -15,7 +15,7 @@ $info_residence = $dbh->query("SELECT num_residence as 'Numéro', nom_residence 
                     <p><?= $key ?> : <?= $value ?></p>
                 <?php } ?>
             </div>
-            <img src="img/residence.png" width="300">
+            <img src="https://i.pinimg.com/originals/29/00/d0/2900d0f3eaa923f2893921b652dda131.jpg" width="300">
         </div>
     <?php } ?>
 </div>

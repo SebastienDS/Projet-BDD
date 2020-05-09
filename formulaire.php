@@ -4,7 +4,9 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 	require_once("connexion.php");
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-	$valide = $dbh->query("SELECT id, type FROM authentification where login = '$username' and password = SHA1('$password')")->fetchAll();
+	$stmt = $dbh->prepare("SELECT id, type FROM authentification where login = ? and password = SHA1(?)");
+	$stmt->execute([$username, $password]);
+	$valide = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	if ($valide) {
 		session_start();
 		$_SESSION["username"] = $username;

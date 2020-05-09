@@ -277,7 +277,7 @@ button {
 }
 
 .detail_residence {
-	background-color: white;
+	background-color: #eeeeeeff;
 	margin-top: 20px;
 	height: 60px;
 	display: flex;
@@ -292,4 +292,8 @@ button {
 	padding: 20px 0px;
 	border: 1px solid black;
 	border-collapse: collapse;
+}
+
+.contenu_detail_residence {
+	background-color: white;
 }

@@ -21,16 +21,28 @@ $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <p><?= $key ?> : <?= $value ?></p>
             <?php } ?>
         </div>
-        <img src="img/residence.png" width="300">
+        <img src="https://i.pinimg.com/originals/29/00/d0/2900d0f3eaa923f2893921b652dda131.jpg" width="300">
     </div>
 </div>
 
 
 <div class="fullWidth detail_residence">
-    <a href="" class="detail_residence_item">Jardinier</a>
-    <a href="" class="detail_residence_item">Gardien</a>
-    <a href="" class="detail_residence_item">Syndic</a>
-    <a href="" class="detail_residence_item">Calendrier</a>
+    <a href="detail_residence.php?id=<?= htmlentities($id) ?>&page=jardinier" class="detail_residence_item">Jardinier</a>
+    <a href="detail_residence.php?id=<?= htmlentities($id) ?>&page=gardien" class="detail_residence_item">Gardien</a>
+    <a href="detail_residence.php?id=<?= htmlentities($id) ?>&page=syndic" class="detail_residence_item">Syndic</a>
+    <a href="detail_residence.php?id=<?= htmlentities($id) ?>&page=calendrier" class="detail_residence_item">Calendrier</a>
+</div>
+
+
+<div class="fullWidth contenu_detail_residence">
+    <?php
+    $page = htmlentities($_GET["page"]) ?? 'jardinier';
+    if (!in_array($page, ['jardinier', 'gardien', 'syndic', 'calendrier'])) {
+        $page = 'jardinier';
+    }
+    require_once("detail_residence_$page.php");
+
+    ?>
 </div>
 
 <?php 
