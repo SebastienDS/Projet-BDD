@@ -100,7 +100,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } 
     $link = $elem['Numéro du chef'] === $elem['Numéro'] ? "ChefJardinier" : "jardinier";
     ?>
-    <div class="fullWidth presentationJardinier">
+    <div class="fullWidth presentationJardinier" id="<?= $elem['Numéro'] ?>">
         <img src="img/<?= $link ?>.jpg" width="200" class="espace">
         <div class="contenuJardinier espace">
             <?php foreach ($elem as $key => $value) { ?>

@@ -67,4 +67,39 @@ function get_insert_authentification_query($array, $id) {
     ]);
 }
 
+function get_modification_individu_query($array, $id) {
+    return array("UPDATE Individu set nom_individu = ?, prenom_individu = ?, adresse_individu = ?, telephone_individu = ? where num_individu = ?", [
+        $array["nom_individu"] ?? NULL, 
+        $array["prenom_individu"] ?? NULL,
+        $array["adresse_individu"] ?? NULL,
+        $array["telephone_individu"] ?? NULL,
+        $id
+    ]);
+}
+
+function get_modification_jardinier_query($array, $id) {
+    return array("UPDATE Jardinier set date_de_naissance_jardinier = ?, sexe = ?, diplome = ?, anciennete = ?, possibilite_responsable = ? where num_individu = ?", [
+        $array["date_de_naissance_jardinier"] ?? NULL,
+        $array["sexe"] ?? NULL,
+        $array["diplome"] ?? NULL,
+        $array["anciennete"] ?? NULL,
+        $array["possibilite_responsable"] ?? NULL,
+        $id
+    ]);
+}
+
+function get_modification_authentification_query($array, $id) {
+    if (isset($array["password"])) {
+        return array("UPDATE authentification set login = ?, password = sha1(?), type = ? where id = ?", [
+            $array["login"], $array["password"], $array["type"], $id
+        ]);
+    }
+    else {
+        return array("UPDATE authentification set login = ?, type = ? where id = ?", [
+            $array["login"], $array["type"], $id
+        ]);
+    }
+    
+}
+
 ?>

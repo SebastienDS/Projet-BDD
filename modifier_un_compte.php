@@ -1,21 +1,68 @@
 <?php 
+$_GET = array_filter($_GET);
+$_POST = array_filter($_POST);
 if (!isset($_GET["id"])) {
     header("location: gestion_des_comptes.php");
 }
+
 require_once("header.php");
 require_once("connexion.php");
-
 $id = (int)$_GET["id"];
+
+if (!empty($_POST)) {
+    $update = true;
+    try {
+        $dbh->beginTransaction();
+        list($individu, $var) = get_modification_individu_query($_POST, $id);
+        $stmt_individu = $dbh->prepare($individu);
+        $stmt_individu->execute($var);
+
+        list($jardinier, $var) = get_modification_jardinier_query($_POST, $id);
+        $stmt_jardinier = $dbh->prepare($jardinier);
+        $stmt_jardinier->execute($var); 
+
+        list($authentification, $var) = get_modification_authentification_query($_POST, $id);
+        $stmt_authentification = $dbh->prepare($authentification);
+        $stmt_authentification->execute($var);  
+
+        $dbh->commit();
+    } catch (Exception $e) {
+        $update = false;
+        $dbh->rollback();
+        echo $e->getMessage();
+    }
+}
+
 
 list($query, $var) = get_recherche_query(["num_individu" => $id]);
 $stmt = $dbh->prepare($query);
 $stmt->execute($var);
 $infos = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
+$stmt = $dbh->prepare("select login, type from authentification where id = ?");
+$stmt->execute([$id]);
+$infos = array_merge($infos, $stmt->fetchAll(PDO::FETCH_ASSOC)[0]);
+
+
+
 ?>
+
+<?php if (isset($update)) { ?>
+    <?php if ($update) { ?>
+        <div class="espace center">
+            <h2 class="bleu">Modification effectué</h2>
+        </div>
+    <?php } else { ?>
+        <div class="espace center">
+            <h2 class="rouge">Modification non effectué</h2>
+        </div>
+    <?php } ?>
+<?php } ?>
+
 
 <div class="espace">
     <h1 class="center">Modification d'un compte</h1>
-    <form method="get">
+    <form method="post">
         <div>
             <label for="nom" class="label">Nom :</label>
             <input type="text" id="nom" name="nom_individu" class="input" value="<?= $infos['Nom'] ?>">
@@ -71,44 +118,37 @@ $infos = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
                 <option value="Non" <?= ($infos['Possibilite responsable'] === 'Non') ? 'selected' : '' ?>>Non</option>
             </select>
         </div>
-
-        <!-- TODO -->
-        <!-- <div>
-            <label for="chef" class="label">Possible responsable :</label>
-            <select name="possibilite_responsable" id="chef">
-                <option value="">Ne sait pas</option>
-                <option value="Oui">Oui</option>
-                <option value="Non">Non</option>
-            </select>
-        </div>
         <div>
             <label for="login" class="label">Identifiant du compte :</label>
-            <input type="text" id="login" name="login" class="input" required>
+            <input type="text" id="login" name="login" class="input" value="<?= $infos['login'] ?>" required>
         </div>
         <div>
             <label for="password" class="label">Mot de passe :</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="password" id="password">
         </div>
         <div>
             <label for="confirm" class="label">Confirmation :</label>
-            <input type="password" id="confirm" required>
+            <input type="password" id="confirm">
         </div>
         <div>
             <label for="type" class="label">Type :</label>
             <select name="type" id="type" required>
                 <option value="">None</option>
-                <option value="Administrateur">Administrateur</option>
-                <option value="Chef Jardinier">Chef Jardinier</option>
-                <option value="Jardinier">Jardinier</option>
-                <option value="Syndic">Syndic</option>
+                <option value="Administrateur" <?= ($infos['type'] === 'Administrateur') ? 'selected' : '' ?>>Administrateur</option>
+                <option value="Chef Jardinier" <?= ($infos['type'] === 'Chef Jardinier') ? 'selected' : '' ?>>Chef Jardinier</option>
+                <option value="Jardinier" <?= ($infos['type'] === 'Jardinier') ? 'selected' : '' ?>>Jardinier</option>
+                <option value="Syndic" <?= ($infos['type'] === 'Syndic') ? 'selected' : '' ?>>Syndic</option>
             </select>
-        </div> -->
+        </div>
 
         <div class="button_form">
             <button type="submit">Modifier</button>
             <button type="reset">Effacer</button>
         </div>
+
+        <script src="check_password.js"></script>
     </form>
+    <a href="gestion_des_comptes.php#<?= $id ?>" class="center espace"><h3>Revenir à la gestion des comptes</h3></a>
 </div>
 
 <?php
