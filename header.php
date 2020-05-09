@@ -31,7 +31,7 @@ $links = get_links($_SESSION["type"]);
 			</table>
 			<div>
 				<ul id="menu-deroulant">
-					<li><a href="#"><img class="profile" src="img/le_sedum_reportage.jpg" width="125px" height="125px"></a>
+					<li><a href="accueil.php"><img class="profile" src="img/le_sedum_reportage.jpg" width="125px" height="125px"></a>
 						<ul>
 							<li><a href="<?= $lien_profil ?>.php">Mon Profil</a></li>
 							<li><a href="#">Mes Paramètres</a></li>

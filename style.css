@@ -256,3 +256,40 @@ button {
 	color: red;
 	background-color: gold;
 }
+
+.residence_list {
+	margin: 0px 30px
+}
+
+.residence_item {
+	padding: 30px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.contenu_residence {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 30%;
+}
+
+.detail_residence {
+	background-color: white;
+	margin-top: 20px;
+	height: 60px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
+.detail_residence_item {
+	width: 25%;
+	text-align: center;
+	padding: 20px 0px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}

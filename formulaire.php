@@ -4,12 +4,13 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 	require_once("connexion.php");
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-	$valide = $dbh->query("SELECT type FROM authentification where login = '$username' and password = SHA1('$password')")->fetchAll();
+	$valide = $dbh->query("SELECT id, type FROM authentification where login = '$username' and password = SHA1('$password')")->fetchAll();
 	if ($valide) {
 		session_start();
 		$_SESSION["username"] = $username;
 		$_SESSION["type"] = $valide[0]["type"];
-		
+		$_SESSION["id"] = $valide[0]["id"];
+
 		header("location: accueil.php");
 	}
 	$not_set = false;
