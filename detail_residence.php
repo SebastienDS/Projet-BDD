@@ -8,7 +8,11 @@ $id = (int)$_GET["id"];
 require_once("header.php");
 require_once("connexion.php");
 
-$stmt = $dbh->prepare("SELECT num_residence as 'Numéro', nom_residence as 'Nom', num_syndic as 'Numéro Syndic', num_individu as 'Numéro du jardinier Responsable' from Residence where num_residence = ?");
+$stmt = $dbh->prepare("SELECT num_residence as 'Numéro', nom_residence as 'Nom', 
+    num_syndic as 'Numéro Syndic', num_individu as 'Numéro du jardinier Responsable', 
+    surface_de_pelouse as 'Surface de la pelouse', surface_de_baie as 'Surface de haie', 
+    surface_espace_vert as 'Surface de l\'espace vert' from Residence natural join Descriptif 
+    where num_residence = ?");
 $stmt->execute([$id]);
 $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
