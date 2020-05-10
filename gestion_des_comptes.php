@@ -15,7 +15,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="espace">
     <h1 class="center">Rechercher</h1>
-    <form method="get">
+    <form method="get" class="form">
         <div>
             <label for="numero" class="label">Numéro :</label>
             <select name="num_individu" id="numero">
@@ -82,8 +82,8 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="button_form">
-            <button type="submit">Rechercher</button>
-            <button type="reset">Effacer</button>
+            <button type="submit" class="button_gestion">Rechercher</button>
+            <button type="reset" class="button_gestion">Effacer</button>
         </div>
     </form>
 </div>

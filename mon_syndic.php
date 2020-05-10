@@ -1,9 +1,11 @@
 <?php
+require_once("header.php");
 require_once('connexion.php');
-$stmt = $dbh->prepare("SELECT num_syndic, nom_syndic, adresse_syndic from Syndic natural join Jardinier where num_individu = ?");
+$stmt = $dbh->prepare("SELECT num_syndic, nom_syndic, adresse_syndic from Residence natural join Syndic where num_residence = ?");
 $stmt->execute([$_SESSION['id']]);
 $syndic = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 
 <?php foreach ($syndic as $elem) { ?>
     <div class="fullWidth presentationJardinier">
@@ -15,3 +17,7 @@ $syndic = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 <?php } ?>
+
+<?php 
+require_once("footer.php");
+?> 

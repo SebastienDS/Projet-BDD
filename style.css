@@ -133,7 +133,7 @@ a:hover {
 }
 
 .espace {
-	margin: 25px;
+	padding: 25px;
 }
 
 .fullWidth {
@@ -177,7 +177,7 @@ a:hover {
 
 /* style formulaire */
 
-form {
+.form {
 	margin: 0 auto;
 	width: 600px;
 	padding: 1em;
@@ -185,7 +185,7 @@ form {
 	border-radius: 1em;
 }
 
-form div + div {
+.form div + div {
 	margin-top: 1em;
 }
 
@@ -215,22 +215,23 @@ form div + div {
 	padding-left: 200px;
 }
 
-button {
+.button_gestion {
 	margin-left: .5em;
 }
 
 .presentationJardinier {
 	display: flex;
 	border-bottom: 1px solid black;
+	align-items: center;
 }
 
 .contenuJardinier {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
+	justify-content: center;
 	height: 100px;
 	width: 70%;
-	padding: 20px 0px;
 }
 
 .itemDescription {
@@ -296,4 +297,38 @@ button {
 
 .contenu_detail_residence {
 	background-color: white;
+}
+
+.form_calendrier {
+	width: 30%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex_center {
+	display: flex;
+	justify-content: center;
+}
+
+.select_calendrier {
+	width: 125px;
+	height: 35px;
+	text-align: center;
+}
+
+.table_calendrier td, th, tr {
+	border: 1px solid black;
+}
+
+.table_calendrier th {
+	background-color: deeppink;
+	padding: 15px 0px;
+}
+
+.table_calendrier td {
+	padding: 10px 0px;
+}
+
+.table_calendrier tr:nth-child(odd) {
+    background-color: #d8d7d7; 
 }

@@ -10,7 +10,7 @@ $jardinier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 <?php foreach ($jardinier as $elem) { ?>
-    <div class="fullWidth presentationJardinier" id="<?= $elem['Numéro'] ?>">
+    <div class="fullWidth presentationJardinier">
         <img src="img/concierge.png" width="200" class="espace">
         <div class="contenuJardinier espace">
             <?php foreach ($elem as $key => $value) { ?>

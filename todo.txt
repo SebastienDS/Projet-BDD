@@ -1,10 +1,10 @@
 jardinier:
     mes_residences  (mettre que "mes" ?)
-        gardien
-        syndic
-        calendrier
-    mon salaire
-    mon syndic
+        X gardien
+        X syndic
+        X calendrier
+    X mon salaire
+    X mon syndic
     mon profil
     mes parametres
 admin:

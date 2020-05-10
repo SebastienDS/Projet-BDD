@@ -9,11 +9,11 @@ function get_infos() {
         ],
         "Jardinier" => [
             "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
-            "links" => ["mes_residences.php"]
+            "links" => ["mes_residences.php", "mon_salaire.php", "mon_syndic.php"]
         ],
         "Chef Jardinier" => [
             "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
-            "links" => ["mes_residences.php"]
+            "links" => ["mes_residences.php", "mon_salaire.php", "mon_syndic.php"]
         ],
         "Syndic" => [
             "onglets" => ["Mes résidences", "Mes Outils", "Mes contacts"],

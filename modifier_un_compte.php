@@ -62,7 +62,7 @@ $infos = array_merge($infos, $stmt->fetchAll(PDO::FETCH_ASSOC)[0] ?? []);
 
 <div class="espace">
     <h1 class="center">Modification d'un compte</h1>
-    <form method="post">
+    <form method="post" class="form">
         <div>
             <label for="nom" class="label">Nom :</label>
             <input type="text" id="nom" name="nom_individu" class="input" value="<?= $infos['Nom'] ?>">
@@ -142,8 +142,8 @@ $infos = array_merge($infos, $stmt->fetchAll(PDO::FETCH_ASSOC)[0] ?? []);
         </div>
 
         <div class="button_form">
-            <button type="submit">Modifier</button>
-            <button type="reset">Effacer</button>
+            <button type="submit" class="button_gestion">Modifier</button>
+            <button type="reset" class="button_gestion">Effacer</button>
         </div>
 
         <script src="check_password.js"></script>
