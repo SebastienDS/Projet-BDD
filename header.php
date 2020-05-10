@@ -9,7 +9,7 @@ $links = get_links($_SESSION["type"]);
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>PROJET BDD DU TURFU</title>
+		<title>Projet BDD</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	</head>
