@@ -1,30 +1,33 @@
 <?php
-$infos = [
-    "Administrateur" => [
-        "onglets" => ["Gérer les comptes utilisateurs", "Gérer les résidences"],
-        "links" => ["gestion_des_comptes.php"]
-    ],
-    "Jardinier" => [
-        "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
-        "links" => ["mes_residences.php"]
-    ],
-    "Chef Jardinier" => [
-        "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
-        "links" => ["mes_residences.php"]
-    ],
-    "Syndic" => [
-        "onglets" => ["Mes résidences", "Mes Outils", "Mes contacts"],
-        "links" => ["mes_residences.php"]
-    ]
-];
 
+
+function get_infos() {
+    return [
+        "Administrateur" => [
+            "onglets" => ["Gérer les comptes utilisateurs", "Gérer les résidences"],
+            "links" => ["gestion_des_comptes.php"]
+        ],
+        "Jardinier" => [
+            "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
+            "links" => ["mes_residences.php"]
+        ],
+        "Chef Jardinier" => [
+            "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
+            "links" => ["mes_residences.php"]
+        ],
+        "Syndic" => [
+            "onglets" => ["Mes résidences", "Mes Outils", "Mes contacts"],
+            "links" => ["mes_residences.php"]
+        ]
+    ];
+}
 
 function get_onglets($role) {
-    return $infos[$role]["onglets"];
+    return get_infos()[$role]["onglets"];
 }
 
 function get_links($role) {
-    return $infos[$role]["links"];
+    return get_infos()[$role]["links"];
 }
 
 function get_recherche_query($array) {
