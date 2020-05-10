@@ -5,7 +5,7 @@ function get_infos() {
     return [
         "Administrateur" => [
             "onglets" => ["Gérer les comptes utilisateurs", "Gérer les résidences"],
-            "links" => ["gestion_des_comptes.php"]
+            "links" => ["gestion_des_comptes.php", "gerer_les_residences.php"]
         ],
         "Jardinier" => [
             "onglets" => ["Mes résidences", "Mon salaire", "Mon syndic"],
@@ -17,7 +17,7 @@ function get_infos() {
         ],
         "Syndic" => [
             "onglets" => ["Mes résidences", "Mes Outils", "Mes contacts"],
-            "links" => ["mes_residences.php"]
+            "links" => ["mes_residences.php", "mes_outils.php", "mes_contacts.php"]
         ]
     ];
 }
@@ -112,6 +112,24 @@ function get_modification_authentification_query($array, $id) {
         ]);
     }
     
+}
+
+function get_profil_query($type, $id) {
+    switch ($type) {
+        case "Administrateur":
+            return array("SELECT * from Individu where num_individu = ?", [
+                $id
+            ]);
+        case "Jardinier":
+        case "Chef Jardinier":
+            return array("SELECT * from Individu natural join Jardinier where num_individu = ?", [
+                $id
+            ]);
+        case "Syndic": 
+            return array("SELECT * from Syndic where num_syndic = ?", [
+                $id
+            ]);
+    }   
 }
 
 ?>
