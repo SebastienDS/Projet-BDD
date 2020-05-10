@@ -1,4 +1,8 @@
 <?php
+if ($_COOKIE["rester_connecte"]) {
+	header("location: accueil.php");
+}
+
 $not_set = true;
 if (isset($_POST["password"]) && isset($_POST["username"])) {
 	require_once("connexion.php");
@@ -7,11 +11,15 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 	$stmt = $dbh->prepare("SELECT id, type FROM authentification where login = ? and password = SHA1(?)");
 	$stmt->execute([$username, $password]);
 	$valide = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	if ($valide) {
+	if ($valide) {	
 		session_start();
 		$_SESSION["username"] = $username;
 		$_SESSION["type"] = $valide[0]["type"];
 		$_SESSION["id"] = $valide[0]["id"];
+
+		if ($_POST["connecte"] ?? false) {
+			setcookie("rester_connecte", implode(";", $_SESSION), time() + 86400); // 1 jour
+		}
 
 		header("location: accueil.php");
 	}
@@ -48,6 +56,10 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 						<input type="password" name="password" id="Password" size="25" required>
 					</div>
 				</div>
+				<div class="centrer espace">
+					<input type="checkbox" name="connecte" id="connecte">
+					<label for="connecte">Rester connecté</label>
+				</div>	
 				<button type="submit" class="buttonTaille">Se Connecter</button>
 			</form>
 		</div>

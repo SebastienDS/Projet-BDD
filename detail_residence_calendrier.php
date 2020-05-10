@@ -8,12 +8,10 @@ if (isset($_GET["num_trimestre"]) && isset($_GET["annee"])) {
         concat(nom_individu, ' ', prenom_individu) as 'Jardinier', jour as 'Jour', 
         heure_de_travail as 'Nombre d\'heure' from Calendrier natural join Intervention 
         natural join effectue natural join Tache natural join Individu
-        where num_residence = ? and num_trimestre = ? and annee = ? order by date_debut");
+        where num_residence = ? and num_trimestre = ? and annee = ? order by date_debut, jour");
     $stmt->execute([$_GET["id"], $num, $annee]);
     $calendrier = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 }
-
 
 ?>
 

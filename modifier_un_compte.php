@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if ($_SESSION["type"] !== "Administrateur") {
+    header("location: accueil.php");
+}
 $_GET = array_filter($_GET);
 $_POST = array_filter($_POST);
 if (!isset($_GET["id"])) {

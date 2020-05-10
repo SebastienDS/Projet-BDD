@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if ($_SESSION["type"] !== "Administrateur") {
+    header("location: accueil.php");
+}
 require_once("header.php");
 require_once("connexion.php");
 
@@ -145,7 +149,6 @@ if (!empty($_POST)) {
         <script src="check_password.js"></script>
 
     </form>
-
 </div>
 
 <?php

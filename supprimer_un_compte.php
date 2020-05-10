@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if ($_SESSION["type"] !== "Administrateur") {
+    header("location: accueil.php");
+}
 require("verification.php");
 require_once("connexion.php");
 

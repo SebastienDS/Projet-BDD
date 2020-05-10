@@ -83,3 +83,7 @@ button:hover::before {
 .rouge {
 	color: red;
 }
+
+.espace {
+	padding: 15px 0px;
+}

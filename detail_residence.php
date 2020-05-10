@@ -20,7 +20,7 @@ $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="residence_list">
     <div class="residence_item">
         <img src="img/residence.png" width="400">
-        <div class="contenu_residence">
+        <div class="contenu_residence espace">
             <?php foreach ($info_residence[0] as $key => $value) { ?>
                 <p><?= $key ?> : <?= $value ?></p>
             <?php } ?>
@@ -28,7 +28,6 @@ $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <img src="https://i.pinimg.com/originals/29/00/d0/2900d0f3eaa923f2893921b652dda131.jpg" width="300">
     </div>
 </div>
-
 
 <div class="fullWidth detail_residence">
     <a href="detail_residence.php?id=<?= htmlentities($id) ?>&page=jardinier" class="detail_residence_item">Jardinier</a>
@@ -40,7 +39,7 @@ $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="fullWidth contenu_detail_residence">
     <?php
-    $page = htmlentities($_GET["page"]) ?? 'jardinier';
+    $page = htmlentities($_GET["page"] ?? 'jardinier');
     if (!in_array($page, ['jardinier', 'gardien', 'syndic', 'calendrier'])) {
         $page = 'jardinier';
     }
