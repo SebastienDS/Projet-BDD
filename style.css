@@ -132,6 +132,15 @@ a:hover {
 	display: flex;
 }
 
+.contenu_profil {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	height: 300px;
+	width: 70%;
+}
+
 .espace {
 	padding: 25px;
 }

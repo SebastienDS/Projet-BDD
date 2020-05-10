@@ -1,5 +1,12 @@
 <?php
 require_once("header.php");
+require_once("connexion.php");
+
+list($query, $var) = get_profil_query($_SESSION["type"], $_SESSION["id"]);
+$stmt = $dbh->prepare($query);
+$stmt->execute($var);
+$profil = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -7,12 +14,10 @@ require_once("header.php");
     <div class="espace">
         <img src="img/logo.png">
     </div>
-    <div class="espace">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid laborum praesentium porro cum! Temporibus adipisci, quidem odit laborum voluptate, qui excepturi eaque, animi corporis repudiandae laboriosam? Minima, ab maiores?
-        Repudiandae pariatur quas nostrum facilis voluptas ipsum rerum beatae, tempore, illum maxime vitae deserunt! Tenetur, recusandae est sint cupiditate provident assumenda cumque quod maxime magnam quis possimus minus esse? Odio?
-        Labore optio blanditiis quia, unde dolore perspiciatis doloremque. Sit dolorem dolorum natus, libero quasi commodi, quo, nemo facilis esse perspiciatis sapiente magnam doloremque? Nulla adipisci ut ad facere dolor vero?
-        Nihil maxime inventore quam doloremque! Maxime quaerat vitae eligendi molestias commodi recusandae, odio fugit accusantium numquam fugiat asperiores! Excepturi nesciunt non eaque corrupti optio, eveniet blanditiis architecto dicta sequi cupiditate.
-        Vitae repudiandae laudantium magnam aliquid, porro ut vero adipisci delectus. Dolore qui eaque sapiente adipisci nam quos placeat fuga tempore! Nam deleniti quibusdam aut sapiente corporis, facilis numquam error nobis.
+    <div class="contenu_profil espace">
+        <?php foreach ($profil[0] ?? [] as $key => $value) { ?>
+            <p class="itemDescription"><?= $key ?> : <?= $value ?></p>
+        <?php } ?>
     </div>
 </div>
 
