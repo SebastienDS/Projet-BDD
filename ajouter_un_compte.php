@@ -54,7 +54,7 @@ if (!empty($_POST)) {
 
 <div class="espace">
     <h1 class="center">Ajouter un compte</h1>
-    <form method="post">
+    <form method="post" class="form">
         <div>
             <label for="numero" class="label">Numéro</label>
             <input type="number" name="num_individu" id="numero" class="input">
