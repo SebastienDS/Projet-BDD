@@ -2,11 +2,10 @@
 require_once("header.php");
 require_once("connexion.php");
 
-$stmt = $dbh->prepare("SELECT r.num_residence as 'Numéro', nom_residence as 'Nom', 
-    num_syndic as 'Numéro Syndic', r.num_individu as 'Numéro du Contact', 
+$stmt = $dbh->prepare("SELECT num_residence as 'Numéro', nom_residence as 'Nom', 
+    num_syndic as 'Numéro Syndic', num_individu as 'Numéro du Contact', 
     surface_de_pelouse as 'Surface de la pelouse', surface_de_baie as 'Surface de haie', 
-    surface_espace_vert as 'Surface de l\'espace vert' from Residence as r natural join Descriptif
-    join travaille as t on r.num_residence = t.num_residence");
+    surface_espace_vert as 'Surface de l\'espace vert' from Residence natural join Descriptif");
 $stmt->execute([$_SESSION["id"]]);
 $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -26,8 +25,8 @@ $info_residence = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php } ?>
                 <?php if ($_SESSION["type"] === "Administrateur") { ?>
                     <div>
-                        <a href="modifier_une_residence.php?id=<?= $info_residence[0]['Numéro'] ?>" onclick="return confirm('Voulez vous modifier cette résidence ?');"><img src="img/modifier.png" width="40"></a>
-                        <a href="supprimer_une_residence.php?id=<?= $info_residence[0]['Numéro'] ?>" onclick="return confirm('Voulez vous supprimez cette résidence ?');"><img src="img/supprimer.png" width="40"></a>
+                        <a href="modifier_une_residence.php?id=<?= $row['Numéro'] ?>" onclick="return confirm('Voulez vous modifier cette résidence ?');"><img src="img/modifier.png" width="40"></a>
+                        <a href="supprimer_une_residence.php?id=<?= $row['Numéro'] ?>" onclick="return confirm('Voulez vous supprimez cette résidence ?');"><img src="img/supprimer.png" width="40"></a>
                     </div>
                 <?php } ?>
             </div>

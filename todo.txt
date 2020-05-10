@@ -1,13 +1,17 @@
 jardinier:
-    mes_residences  (mettre que "mes" ?)
+    X mes_residences  (mettre que "mes" ?)
         X gardien
         X syndic
         X calendrier
     X mon salaire
     X mon syndic
-    mon profil
+    / mon profil
     mes parametres
 admin:
-    gerer les residences
+    X gerer les residences
+    X ajout / suppression de residences
+    gardiens
+    ajout d'intervention pour le calendrier
+    corriger lajout de compte (peut creer tout type de compte mais seront tous des jardiniers)
 syndic: 
-    ? si ya le temps :)
+    X ? si ya le temps :)

@@ -77,6 +77,24 @@ function get_insert_authentification_query($array, $id) {
     ]);
 }
 
+function get_insert_residence_query($array) {
+    return array("INSERT into Residence (num_residence, nom_residence, num_syndic, num_individu) values (?,?,?,?)", [
+        $array['num_residence'] ?? NULL, 
+        $array['nom_residence'] ?? NULL, 
+        $array['num_syndic'] ?? NULL, 
+        $array['num_individu'] ?? NULL 
+    ]);
+}
+
+function get_insert_descriptif_query($array, $id) {
+    return array("INSERT into Descriptif (num_residence, surface_de_pelouse, surface_de_baie, surface_espace_vert) values (?,?,?,?)", [
+        $id, 
+        $array['surface_de_pelouse'] ?? NULL, 
+        $array['surface_de_baie'] ?? NULL, 
+        $array['surface_espace_vert'] ?? NULL 
+    ]);
+}
+
 function get_modification_individu_query($array, $id) {
     return array("UPDATE Individu set nom_individu = ?, prenom_individu = ?, adresse_individu = ?, 
         telephone_individu = ? where num_individu = ?", [
@@ -110,8 +128,25 @@ function get_modification_authentification_query($array, $id) {
         return array("UPDATE authentification set login = ?, type = ? where id = ?", [
             $array["login"], $array["type"], $id
         ]);
-    }
-    
+    }    
+}
+
+function get_modification_residence_query($array, $id) {
+    return array("UPDATE Residence set nom_residence = ?, num_syndic = ?, num_individu = ? where num_residence = ?", [
+        $array['nom_residence'] ?? NULL, 
+        $array['num_syndic'] ?? NULL, 
+        $array['num_individu'] ?? NULL,
+        $id
+    ]);
+}
+
+function get_modification_descriptif_query($array, $id) {
+    return array("UPDATE Descriptif set surface_de_pelouse = ?, surface_de_baie = ?, surface_espace_vert = ? where num_residence = ?", [ 
+        $array['surface_de_pelouse'] ?? NULL, 
+        $array['surface_de_baie'] ?? NULL, 
+        $array['surface_espace_vert'] ?? NULL,
+        $id
+    ]);
 }
 
 function get_profil_query($type, $id) {

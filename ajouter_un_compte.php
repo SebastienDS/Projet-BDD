@@ -61,7 +61,7 @@ if (!empty($_POST)) {
     <form method="post" class="form">
         <div>
             <label for="numero" class="label">Numéro</label>
-            <input type="number" name="num_individu" id="numero" class="input">
+            <input type="number" name="num_individu" id="numero" class="input" min="0">
         </div>
         <div>
             <label for="nom" class="label">Nom :</label>

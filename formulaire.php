@@ -1,5 +1,5 @@
 <?php
-if ($_COOKIE["rester_connecte"]) {
+if (isset($_COOKIE["rester_connecte"])) {
 	header("location: accueil.php");
 }
 
