@@ -13,7 +13,7 @@ $gardien = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <img src="img/ajouter.png" width="75">
         <h2 class="espace">Ajouter un gardien à la résidence</h2>
     </a>
-<?php } ?>
+<?php } ?>
 
 <?php foreach ($gardien as $elem) { ?>
     <div class="fullWidth presentationJardinier">
@@ -24,9 +24,9 @@ $gardien = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
             <?php if ($_SESSION["type"] === "Administrateur") { ?>
                 <div class="icon espace">
-                    <a href="supprimer_le_gardien_de_la_residence.php?id=<?= $elem['Numéro'] ?>" onclick="return confirm('Voulez vous supprimez ce gardien de la residence ?');"><img src="img/supprimer.png" width="50"></a>
+                    <a href="supprimer_le_gardien_de_la_residence.php?residence=<?= $_GET["id"] ?>&id=<?= $elem['Numéro'] ?>" onclick="return confirm('Voulez vous supprimez ce gardien de la residence ?');"><img src="img/supprimer.png" width="50"></a>
                 </div>
-            <?php } ?>
+            <?php } ?>
         </div>
     </div>
 <?php } ?>

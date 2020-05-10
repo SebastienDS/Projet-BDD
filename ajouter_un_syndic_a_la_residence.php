@@ -7,17 +7,14 @@ require_once("header.php");
 require_once("connexion.php");
 
 $_POST = array_filter($_POST);
-$stmt = $dbh->prepare("SELECT num_individu from Jardinier where num_individu not in (
-    select num_individu from travaille where num_residence = ?) order by num_individu");
-$stmt->execute([$_GET["id"]]);
-$num = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$num = $dbh->query("SELECT num_syndic from Syndic")->fetchAll(PDO::FETCH_ASSOC);
 
 
 if (!empty($_POST)) {
     $insert = true;
     try {
-        $stmt = $dbh->prepare("INSERT into travaille (num_individu, num_residence) values (?, ?)");
-        $stmt->execute([$_POST["num_individu"], $_GET["id"]]);
+        $stmt = $dbh->prepare("UPDATE Residence set num_syndic = ? where num_residence = ?");
+        $stmt->execute([$_POST["num_syndic"], $_GET["id"]]);
     } catch (Exception $e) {
         $insert = false;
         echo $e->getMessage();
@@ -44,10 +41,10 @@ if (!empty($_POST)) {
     <form method="post" class="form">
         <div>
             <label for="num" class="label">Numéro du jardinier :</label>
-            <select name="num_individu" id="num" required>
+            <select name="num_syndic" id="num" required>
                 <option value="">- - -</option>
                 <?php foreach ($num as $row) { ?>
-                    <option value="<?= $row["num_individu"] ?>"><?= $row["num_individu"] ?></option>
+                    <option value="<?= $row["num_syndic"] ?>"><?= $row["num_syndic"] ?></option>
                 <?php } ?>
                 
             </select>
